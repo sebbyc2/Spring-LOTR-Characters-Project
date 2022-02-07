@@ -1,1 +1,1 @@
-INSERT INTO `character`(`name`, `age`, `race`) VALUES ('Gandalf', 24000, 'Maia');
+INSERT INTO `LOTRCharacter`(`name`, `age`, `race`) VALUES ('Gandalf', 24000, 'Maia');
