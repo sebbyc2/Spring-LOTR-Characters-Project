@@ -2,11 +2,10 @@ package com.qa.lotrcharactersproject.domain;
 
 import com.sun.istack.NotNull;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
+@Entity
+@Table(name = "Character")
 public class Character {
 
     // Instance Variables
@@ -45,7 +44,6 @@ public class Character {
     }
 
     // Getters & setters
-
 
     public Long getId() {
         return id;
