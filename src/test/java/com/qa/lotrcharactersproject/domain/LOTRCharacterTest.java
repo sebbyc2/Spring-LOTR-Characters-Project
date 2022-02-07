@@ -72,4 +72,9 @@ public class LOTRCharacterTest {
 
         assertEquals("Half-Elf", character.getRace());
     }
+    @Test
+    public void testToString(){
+        LOTRCharacter character = new LOTRCharacter("Aragorn", 87, "Human");
+        assertEquals("LOTRCharacter{id=1, name='Aragorn', age=87, race='Human'}", character.toString());
+    }
 }
