@@ -22,7 +22,7 @@ public class CharacterController {
 
     //POST - Create Character
     @PostMapping
-    public ResponseEntity<LOTRCharacter> create(LOTRCharacter character) {
+    public ResponseEntity<LOTRCharacter> create(@RequestBody LOTRCharacter character) {
         return new ResponseEntity<>(this.service.create(character), HttpStatus.CREATED);
     }
 
@@ -34,19 +34,19 @@ public class CharacterController {
 
     //GET - Read by ID
     @GetMapping("/{id}")
-    public ResponseEntity<LOTRCharacter> readById(Long id) {
+    public ResponseEntity<LOTRCharacter> readById(@PathVariable Long id) {
         return new ResponseEntity<>(this.service.readById(id), HttpStatus.FOUND);
     }
 
     //PUT - Update Character
     @PutMapping("/{id}")
-    public ResponseEntity<LOTRCharacter> update(LOTRCharacter character, Long id) {
+    public ResponseEntity<LOTRCharacter> update(@RequestBody LOTRCharacter character, @PathVariable Long id) {
         return new ResponseEntity<>(this.service.update(character, id), HttpStatus.ACCEPTED);
     }
 
     //DELETE - Delete Character by ID
     @DeleteMapping("/{id}")
-    public ResponseEntity<Boolean> delete(Long id) {
+    public ResponseEntity<Boolean> delete(@PathVariable Long id) {
         return new ResponseEntity<>(this.service.delete(id), HttpStatus.OK);
     }
 }
