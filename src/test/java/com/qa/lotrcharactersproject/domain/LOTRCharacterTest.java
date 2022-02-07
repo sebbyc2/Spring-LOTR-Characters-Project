@@ -56,4 +56,12 @@ public class LOTRCharacterTest {
 
         assertEquals("Arwen", character.getName());
     }
+
+    @Test
+    public void testSetAge(){
+        LOTRCharacter character = new LOTRCharacter("Aragorn", 87, "Human");
+        character.setAge(93);
+
+        assertEquals(93, character.getAge());
+    }
 }
