@@ -29,8 +29,11 @@ public class CharacterService implements CRUDCharacterInterface<LOTRCharacter>{
     @Override
     public LOTRCharacter readById(Long id) {
         Optional<LOTRCharacter> optChar = this.repo.findById(id);
-        return optChar.get();
-
+        if (optChar != null){
+            return optChar.get();
+        } else {
+            return null;
+        }
     }
 
     @Override
