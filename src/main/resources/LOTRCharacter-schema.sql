@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS character CASCADE;
+CREATE TABLE LOTRCharacters
+(
+    id   BIGINT AUTO_INCRAMENT,
+    name VARCHAR(255) NOT NULL,
+    age  INTEGER      NOT NULL,
+    race VARCHAR(255),
+    PRIMARY KEY (id)
+);

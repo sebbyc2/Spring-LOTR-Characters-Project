@@ -1,0 +1,1 @@
+INSERT INTO `character`(`name`, `age`, `race`) VALUES ('Gandalf', 24000, 'Maia');
