@@ -39,6 +39,19 @@ public class ServiceTest {
         Mockito.verify(this.repo, Mockito.times(1)).save(newCharacter);
     }
 
+    @Test
+    public void readAllTest(){
+        List<LOTRCharacter> mockList = new ArrayList<>();
 
+        LOTRCharacter char1 = new LOTRCharacter(2L, "Aragorn", 87, "Human");
+        LOTRCharacter char2 = new LOTRCharacter(3L, "Legolas", 2931, "Human");
+
+        mockList.add(char1);
+        mockList.add(char2);
+
+        Mockito.when(this.repo.findAll()).thenReturn(mockList);
+        assertEquals(this.service.readAll(), mockList);
+        Mockito.verify(this.repo, Mockito.times(1)).findAll();
+    }
 
 }
