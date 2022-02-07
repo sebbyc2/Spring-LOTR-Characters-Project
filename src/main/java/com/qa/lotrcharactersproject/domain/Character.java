@@ -24,19 +24,24 @@ public class Character {
     @Column
     private Long age;
 
+    @Column
+    private String race;
+
     // Constructors
     public Character() {
     }
 
-    public Character(String name, Long age) {
+    public Character(String name, Long age, String race) {
         this.name = name;
         this.age = age;
+        this.race = race;
     }
 
-    public Character(Long id, String name, Long age) {
+    public Character(Long id, String name, Long age, String race) {
         this.id = id;
         this.name = name;
         this.age = age;
+        this.race = race;
     }
 
     // Getters & setters
@@ -66,7 +71,16 @@ public class Character {
         this.age = age;
     }
 
+    public String getRace() {
+        return race;
+    }
+
+    public void setRace(String race) {
+        this.race = race;
+    }
+
     // Hashcode and Equals
+
 
     @Override
     public boolean equals(Object o) {
@@ -75,14 +89,18 @@ public class Character {
 
         Character character = (Character) o;
 
-        if (!name.equals(character.name)) return false;
-        return age.equals(character.age);
+        if (!getId().equals(character.getId())) return false;
+        if (!getName().equals(character.getName())) return false;
+        if (!getAge().equals(character.getAge())) return false;
+        return getRace().equals(character.getRace());
     }
 
     @Override
     public int hashCode() {
-        int result = name.hashCode();
-        result = 31 * result + age.hashCode();
+        int result = getId().hashCode();
+        result = 31 * result + getName().hashCode();
+        result = 31 * result + getAge().hashCode();
+        result = 31 * result + getRace().hashCode();
         return result;
     }
 }
