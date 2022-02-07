@@ -48,4 +48,12 @@ public class LOTRCharacterTest {
 
         assertEquals(5L, character.getId());
     }
+
+    @Test
+    public void testSetName(){
+        LOTRCharacter character = new LOTRCharacter("Aragorn", 87, "Human");
+        character.setName("Arwen");
+
+        assertEquals("Arwen", character.getName());
+    }
 }
