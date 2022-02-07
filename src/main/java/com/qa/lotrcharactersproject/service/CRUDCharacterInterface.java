@@ -19,5 +19,5 @@ public interface CRUDCharacterInterface<T> {
     T update(T t, Long id);
 
     //Delete
-    boolean delete(T t);
+    boolean delete(Long id);
 }
