@@ -68,13 +68,13 @@ public class LOTRCharacterTest {
     @Test
     public void testSetRace(){
         LOTRCharacter character = new LOTRCharacter("Aragorn", 87, "Human");
-        character.setRace("Half-elf");
+        character.setRace("Half-Elf");
 
         assertEquals("Half-Elf", character.getRace());
     }
     @Test
     public void testToString(){
-        LOTRCharacter character = new LOTRCharacter("Aragorn", 87, "Human");
-        assertEquals("LOTRCharacter{id=1, name='Aragorn', age=87, race='Human'}", character.toString());
+        LOTRCharacter character = new LOTRCharacter(3L,"Aragorn", 87, "Human");
+        assertEquals("LOTRCharacter{id=3, name='Aragorn', age=87, race='Human'}", character.toString());
     }
 }

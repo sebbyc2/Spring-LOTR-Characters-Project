@@ -100,4 +100,14 @@ public class LOTRCharacter {
         result = 31 * result + getRace().hashCode();
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "LOTRCharacter{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", race='" + race + '\'' +
+                '}';
+    }
 }
