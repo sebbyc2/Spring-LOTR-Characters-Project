@@ -40,4 +40,12 @@ public class LOTRCharacterTest {
         assertNull(character.getAge());
         assertNull(character.getRace());
     }
+
+    @Test
+    public void testSetId(){
+        LOTRCharacter character = new LOTRCharacter("Aragorn", 87, "Human");
+        character.setId(5L);
+
+        assertEquals(5L, character.getId());
+    }
 }
