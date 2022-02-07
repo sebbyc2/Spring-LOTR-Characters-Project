@@ -90,6 +90,16 @@ public class ServiceTest {
         Mockito.verify(this.repo, Mockito.times(1)).findById(validId);
     }
 
+    @Test void testUpdateWithInvalidId(){
+        Long invalidId = 3L;
+
+        LOTRCharacter updatedChar = new LOTRCharacter("Aragorn", 87, "Human");
+
+        Mockito.when(this.repo.existsById(invalidId)).thenReturn(false);
+        assertEquals(this.service.update(invalidId, updatedChar), null);
+        Mockito.verify(this.repo, Mockito.times(1)).existsById(invalidId);
+    }
+
     @Test
     public void testDeleteWithValidId(){
         this.repo.save(newCharacter);
