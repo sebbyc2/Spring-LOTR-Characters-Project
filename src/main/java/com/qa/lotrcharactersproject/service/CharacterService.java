@@ -29,7 +29,7 @@ public class CharacterService implements CRUDCharacterInterface<LOTRCharacter>{
     @Override
     public LOTRCharacter readById(Long id) {
         Optional<LOTRCharacter> optChar = this.repo.findById(id);
-        if (optChar != null){
+        if (optChar.isPresent()){
             return optChar.get();
         } else {
             return null;
@@ -37,7 +37,7 @@ public class CharacterService implements CRUDCharacterInterface<LOTRCharacter>{
     }
 
     @Override
-    public LOTRCharacter update(LOTRCharacter character, Long id) {
+    public LOTRCharacter update(Long id, LOTRCharacter character) {
         Optional<LOTRCharacter> optChar = this.repo.findById(id);
         if (optChar.isPresent()){
             optChar.get().setName(character.getName());

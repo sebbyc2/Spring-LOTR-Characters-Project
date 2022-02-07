@@ -75,4 +75,29 @@ public class ServiceTest {
         Mockito.verify(this.repo, Mockito.times(1)).findById(invalidId);
     }
 
+    @Test
+    public void testUpdateWithValidId(){
+        Long validId = 1L;
+        Optional<LOTRCharacter> optChar = Optional.ofNullable(savedCharacter);
+
+        LOTRCharacter updatedChar = new LOTRCharacter("Aragorn", 87, "Human");
+        LOTRCharacter savedUpdatedChar = new LOTRCharacter(1L,"Aragorn", 87, "Human");
+
+        Mockito.when(this.repo.findById(validId)).thenReturn(optChar);
+        Mockito.when(this.repo.save(savedUpdatedChar)).thenReturn(savedUpdatedChar);
+        assertEquals(this.service.update(validId, updatedChar), savedUpdatedChar);
+        Mockito.verify(this.repo, Mockito.times(1)).save(savedUpdatedChar);
+        Mockito.verify(this.repo, Mockito.times(1)).findById(validId);
+    }
+
+    @Test
+    public void testDeleteWithValidId(){
+        this.repo.save(newCharacter);
+        Long validId = 1L;
+        Mockito.when(this.repo.save(newCharacter)).thenReturn(savedCharacter);
+        Mockito.when(this.repo.existsById(validId)).thenReturn(true);
+        assertEquals(this.service.delete(validId), true);
+        Mockito.verify(this.repo, Mockito.times(1)).save(newCharacter);
+        Mockito.verify(this.repo, Mockito.times(1)).existsById(validId);
+    }
 }

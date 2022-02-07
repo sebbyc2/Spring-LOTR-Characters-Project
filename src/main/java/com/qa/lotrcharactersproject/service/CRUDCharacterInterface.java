@@ -16,7 +16,7 @@ public interface CRUDCharacterInterface<T> {
     T readById(Long id);
 
     //Update
-    T update(T t, Long id);
+    T update(Long id, T t);
 
     //Delete
     boolean delete(Long id);
