@@ -20,6 +20,16 @@ public class LOTRCharacterTest {
         assertEquals("Aragorn", character.getName());
         assertEquals(87, character.getAge());
         assertEquals("Human", character.getRace());
+    }
 
+    @Test
+    public void constructorTestWithoutId(){
+        LOTRCharacter character = new LOTRCharacter("Aragorn", 87, "Human");
+        assertNotNull(character.getName());
+        assertNotNull(character.getAge());
+        assertNotNull(character.getRace());
+        assertEquals("Aragorn", character.getName());
+        assertEquals(87, character.getAge());
+        assertEquals("Human", character.getRace());
     }
 }
