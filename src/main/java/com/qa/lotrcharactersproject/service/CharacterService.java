@@ -29,12 +29,14 @@ public class CharacterService implements CRUDCharacterInterface<LOTRCharacter>{
     @Override
     public LOTRCharacter readById(Long id) {
         Optional<LOTRCharacter> optChar = this.repo.findById(id);
-        return optChar.get();
-
+        if (optChar.isPresent()){
+            return optChar.get();
+        }
+        return null;
     }
 
     @Override
-    public LOTRCharacter update(LOTRCharacter character, Long id) {
+    public LOTRCharacter update(Long id, LOTRCharacter character) {
         Optional<LOTRCharacter> optChar = this.repo.findById(id);
         if (optChar.isPresent()){
             optChar.get().setName(character.getName());
@@ -48,6 +50,7 @@ public class CharacterService implements CRUDCharacterInterface<LOTRCharacter>{
     @Override
     public boolean delete(Long id) {
         Optional<LOTRCharacter> optChar = this.repo.findById(id);
+        System.out.println(optChar);
         if (optChar.isPresent()) {
             this.repo.deleteById(id);
             return !this.repo.existsById(id);

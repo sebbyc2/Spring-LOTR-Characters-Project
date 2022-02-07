@@ -41,7 +41,7 @@ public class CharacterController {
     //PUT - Update Character
     @PutMapping("/{id}")
     public ResponseEntity<LOTRCharacter> update(@RequestBody LOTRCharacter character, @PathVariable Long id) {
-        return new ResponseEntity<>(this.service.update(character, id), HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(this.service.update(id, character), HttpStatus.ACCEPTED);
     }
 
     //DELETE - Delete Character by ID
