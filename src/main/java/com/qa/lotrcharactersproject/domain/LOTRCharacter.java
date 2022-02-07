@@ -5,7 +5,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "Character")
+@Table(name = "LOTRCharacter")
 public class LOTRCharacter {
 
     // Instance Variables
