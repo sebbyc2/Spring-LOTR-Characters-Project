@@ -21,7 +21,7 @@ public class LOTRCharacter {
 
     @NotNull
     @Column
-    private Long age;
+    private Integer age;
 
     @Column
     private String race;
@@ -30,13 +30,13 @@ public class LOTRCharacter {
     public LOTRCharacter() {
     }
 
-    public LOTRCharacter(String name, Long age, String race) {
+    public LOTRCharacter(String name, Integer age, String race) {
         this.name = name;
         this.age = age;
         this.race = race;
     }
 
-    public LOTRCharacter(Long id, String name, Long age, String race) {
+    public LOTRCharacter(Long id, String name, Integer age, String race) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -61,11 +61,11 @@ public class LOTRCharacter {
         this.name = name;
     }
 
-    public Long getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(Long age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
