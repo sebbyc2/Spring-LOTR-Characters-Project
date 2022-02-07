@@ -31,9 +31,8 @@ public class CharacterService implements CRUDCharacterInterface<LOTRCharacter>{
         Optional<LOTRCharacter> optChar = this.repo.findById(id);
         if (optChar.isPresent()){
             return optChar.get();
-        } else {
-            return null;
         }
+        return null;
     }
 
     @Override
@@ -51,6 +50,7 @@ public class CharacterService implements CRUDCharacterInterface<LOTRCharacter>{
     @Override
     public boolean delete(Long id) {
         Optional<LOTRCharacter> optChar = this.repo.findById(id);
+        System.out.println(optChar);
         if (optChar.isPresent()) {
             this.repo.deleteById(id);
             return !this.repo.existsById(id);
