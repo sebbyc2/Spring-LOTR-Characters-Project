@@ -3,14 +3,13 @@ package com.qa.lotrcharactersproject.domain;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 public class LOTRCharacterTest {
 
     @Test
-    public void constructorTestWithId(){
+    public void testConstructorWithId(){
         LOTRCharacter character = new LOTRCharacter(2L, "Aragorn", 87, "Human");
         assertNotNull(character.getId());
         assertNotNull(character.getName());
@@ -23,7 +22,7 @@ public class LOTRCharacterTest {
     }
 
     @Test
-    public void constructorTestWithoutId(){
+    public void testConstructorWithoutId(){
         LOTRCharacter character = new LOTRCharacter("Aragorn", 87, "Human");
         assertNotNull(character.getName());
         assertNotNull(character.getAge());
@@ -31,5 +30,14 @@ public class LOTRCharacterTest {
         assertEquals("Aragorn", character.getName());
         assertEquals(87, character.getAge());
         assertEquals("Human", character.getRace());
+    }
+
+    @Test
+    public void testEmptyConstructor(){
+        LOTRCharacter character = new LOTRCharacter();
+        assertNull(character.getId());
+        assertNull(character.getName());
+        assertNull(character.getAge());
+        assertNull(character.getRace());
     }
 }
