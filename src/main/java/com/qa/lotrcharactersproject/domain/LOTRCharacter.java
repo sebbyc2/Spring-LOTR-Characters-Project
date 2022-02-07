@@ -1,12 +1,12 @@
 package com.qa.lotrcharactersproject.domain;
 
-import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Character")
-public class Character {
+public class LOTRCharacter {
 
     // Instance Variables
 
@@ -27,16 +27,16 @@ public class Character {
     private String race;
 
     // Constructors
-    public Character() {
+    public LOTRCharacter() {
     }
 
-    public Character(String name, Long age, String race) {
+    public LOTRCharacter(String name, Long age, String race) {
         this.name = name;
         this.age = age;
         this.race = race;
     }
 
-    public Character(Long id, String name, Long age, String race) {
+    public LOTRCharacter(Long id, String name, Long age, String race) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -82,14 +82,14 @@ public class Character {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Character)) return false;
+        if (!(o instanceof LOTRCharacter)) return false;
 
-        Character character = (Character) o;
+        LOTRCharacter LOTRCharacter = (LOTRCharacter) o;
 
-        if (!getId().equals(character.getId())) return false;
-        if (!getName().equals(character.getName())) return false;
-        if (!getAge().equals(character.getAge())) return false;
-        return getRace().equals(character.getRace());
+        if (!getId().equals(LOTRCharacter.getId())) return false;
+        if (!getName().equals(LOTRCharacter.getName())) return false;
+        if (!getAge().equals(LOTRCharacter.getAge())) return false;
+        return getRace().equals(LOTRCharacter.getRace());
     }
 
     @Override

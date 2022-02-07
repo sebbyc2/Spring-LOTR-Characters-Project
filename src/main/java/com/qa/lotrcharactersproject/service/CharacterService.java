@@ -1,12 +1,13 @@
 package com.qa.lotrcharactersproject.service;
 
+import com.qa.lotrcharactersproject.domain.LOTRCharacter;
 import com.qa.lotrcharactersproject.repo.CharacterRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class CharacterService implements CRUDCharacterInterface<Character>{
+public class CharacterService implements CRUDCharacterInterface<LOTRCharacter>{
 
     private CharacterRepo repo;
 
@@ -15,27 +16,27 @@ public class CharacterService implements CRUDCharacterInterface<Character>{
     }
 
     @Override
-    public Character create(Character character) {
+    public LOTRCharacter create(LOTRCharacter character) {
         return this.repo.save(character);
     }
 
     @Override
-    public List<Character> readAll() {
+    public List<LOTRCharacter> readAll() {
+        return this.repo.findAll();
+    }
+
+    @Override
+    public LOTRCharacter readById(Long id) {
+
+    }
+
+    @Override
+    public LOTRCharacter update(LOTRCharacter character, Long id) {
         return null;
     }
 
     @Override
-    public Character readById(Long id) {
-        return null;
-    }
-
-    @Override
-    public Character update(Character character, Long id) {
-        return null;
-    }
-
-    @Override
-    public boolean delete(Character character) {
+    public boolean delete(LOTRCharacter character) {
         return false;
     }
 }
