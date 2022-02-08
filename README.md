@@ -12,7 +12,7 @@ The service mockito test went better than expected, however I was stuck on the c
 but I have now got the hang of it and understand it a lot more
 
 Possible improvements for future revisions of the project - 
-I will be making a fork of this project where I will hopefully try to add more tables to and database relations,
+I will be making a fork of this project where I will hopefully try to add more tables and database relations,
 maybe some more service methods, and maybe even some sort of front end
 
 Screenshots showing postman request -
