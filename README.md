@@ -1,4 +1,6 @@
 # Spring-LOTR-Characters-Project
+(100% coverage)
+
 Why are we doing this -
 This project is to help us apply everything we've learnt to a real project
 
@@ -23,8 +25,8 @@ Screenshots showing postman request -
 Screenshots of database to prove data is being persisted -
 ![Data Persist](src/main/resources/images/Data%20Persist.PNG)
 
-
-Screenshots of your test results, including coverage report -
-
+Screenshots of test results, including coverage report -
+![Coverage](src/main/resources/images/Coverage%20Tests.PNG)
+![Tests](src/main/resources/images/Tests.PNG)
 Link to Jira board -
-https://qaproject202.atlassian.net/jira/software/projects/QPSC/boards/3 (Story point are x/5)
+https://qaproject202.atlassian.net/jira/software/projects/QPSC/boards/3 (Story points are x/5)
