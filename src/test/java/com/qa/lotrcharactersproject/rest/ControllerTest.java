@@ -81,6 +81,14 @@ public class ControllerTest{
     }
 
     @Test
+    void testControllerReadById() throws Exception {
+        Long id = 1L;
+        this.mock.perform(get("/api/LOTRCharacter/" + id))
+                .andExpect(status().isFound())
+                .andExpect(content().json(savedChar1JSON));
+    }
+
+    @Test
     void testControllerUpdate() throws Exception {
         Long idToUpdate = 1L;
         LOTRCharacter updated = new LOTRCharacter(1L,"Aragorn", 87, "Human");
@@ -92,7 +100,7 @@ public class ControllerTest{
 
     @Test
     void testControllerDelete() throws Exception {
-        Long idToUpdate = 1L;
-        this.mock.perform(delete("/api/LOTRCharacter/" + idToUpdate)).andExpect(status().isOk()).andExpect(content().string("true"));
+        Long idToDelete = 1L;
+        this.mock.perform(delete("/api/LOTRCharacter/" + idToDelete)).andExpect(status().isOk()).andExpect(content().string("true"));
     }
 }
