@@ -3,6 +3,7 @@ package com.qa.lotrcharactersproject.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
 @Entity
 @Table(name = "LOTRCharacter")
@@ -79,26 +80,18 @@ public class LOTRCharacter {
 
     // Hashcode and Equals
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof LOTRCharacter)) return false;
-
-        LOTRCharacter LOTRCharacter = (LOTRCharacter) o;
-
-        if (!getId().equals(LOTRCharacter.getId())) return false;
-        if (!getName().equals(LOTRCharacter.getName())) return false;
-        if (!getAge().equals(LOTRCharacter.getAge())) return false;
-        return getRace().equals(LOTRCharacter.getRace());
+        if (o == null || getClass() != o.getClass()) return false;
+        LOTRCharacter that = (LOTRCharacter) o;
+        return Objects.equals(name, that.name) && Objects.equals(age, that.age) && Objects.equals(race, that.race);
     }
 
     @Override
     public int hashCode() {
-        int result = getId().hashCode();
-        result = 31 * result + getName().hashCode();
-        result = 31 * result + getAge().hashCode();
-        result = 31 * result + getRace().hashCode();
-        return result;
+        return Objects.hash(name, age, race);
     }
 
     @Override

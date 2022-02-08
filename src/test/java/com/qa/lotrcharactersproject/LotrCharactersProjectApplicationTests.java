@@ -10,4 +10,8 @@ class LotrCharactersProjectApplicationTests {
     void contextLoads() {
     }
 
+    @Test
+    public void appContextTest(){
+        LotrCharactersProjectApplication.main(new String[] {});
+    }
 }

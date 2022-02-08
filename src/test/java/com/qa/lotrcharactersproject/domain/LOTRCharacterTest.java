@@ -1,5 +1,6 @@
 package com.qa.lotrcharactersproject.domain;
 
+import nl.jqno.equalsverifier.EqualsVerifier;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -72,6 +73,12 @@ public class LOTRCharacterTest {
 
         assertEquals("Half-Elf", character.getRace());
     }
+
+    @Test
+    public void hashCodeAndEqualsTest() {
+        EqualsVerifier.simple().forClass(LOTRCharacter.class).verify();
+    }
+
     @Test
     public void testToString(){
         LOTRCharacter character = new LOTRCharacter(3L,"Aragorn", 87, "Human");
