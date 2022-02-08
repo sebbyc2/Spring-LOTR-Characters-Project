@@ -1,6 +1,5 @@
 package com.qa.lotrcharactersproject.rest;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qa.lotrcharactersproject.domain.LOTRCharacter;
 import org.junit.jupiter.api.Test;
@@ -14,7 +13,10 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.ResultMatcher;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -45,8 +47,44 @@ public class ControllerTest{
         this.mock.perform(mockRequest).andExpect(matchStatus).andExpect(matchBody);
     }
 
+    @Test
+    void testControllerReadAll() throws Exception {
+        LOTRCharacter newChar = new LOTRCharacter(1L, "Gandalf", 24000, "Maia");
+        List<LOTRCharacter> list = new ArrayList<>(List.of(newChar));
+        String newCharJSON = this.map.writeValueAsString(list);
 
+        RequestBuilder mockRequest = get("/api/LOTRCharacter");
 
+        ResultMatcher matchStatus = status().isFound();
+        ResultMatcher matchBody = content().json(newCharJSON);
 
+        this.mock.perform(mockRequest).andExpect(matchStatus).andExpect(matchBody);
+    }
 
+    @Test
+    void testControllerUpdate() throws Exception {
+        Long idToUpdate = 1L;
+
+        LOTRCharacter toUpdate = new LOTRCharacter("Aragorn", 87, "Human");
+        String toUpdateJSON = this.map.writeValueAsString(toUpdate);
+
+        RequestBuilder mockRequest = put("/api/LOTRCharacter/" + idToUpdate)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(toUpdateJSON);
+
+        LOTRCharacter updated = new LOTRCharacter(1L,"Aragorn", 87, "Human");
+        String updatedJSON = this.map.writeValueAsString(updated);
+
+        ResultMatcher matchStatus = status().isAccepted();
+        ResultMatcher matchBody = content().json(updatedJSON);
+
+        this.mock.perform(mockRequest)
+                .andExpect(matchStatus)
+                .andExpect(matchBody);
+    }
+
+    @Test
+    void testControllerDelete() throws Exception {
+        this.mock.perform(delete("/api/LOTRCharacter/" + 1L)).andExpect(status().isOk()).andExpect(content().string("true"));
+    }
 }
