@@ -34,7 +34,7 @@ public class ControllerTest{
     void testControllerCreate() throws Exception {
         LOTRCharacter newChar = new LOTRCharacter("Aragorn", 87, "Human");
         String newCharJSON = this.map.writeValueAsString(newChar);
-        RequestBuilder mockRequest = post("/LOTRCharacter").contentType(MediaType.APPLICATION_JSON).content(newCharJSON);
+        RequestBuilder mockRequest = post("/api/LOTRCharacter").contentType(MediaType.APPLICATION_JSON).content(newCharJSON);
 
         LOTRCharacter savedChar = new LOTRCharacter(2L, "Aragorn", 87, "Human");
         String savedCharJSON = this.map.writeValueAsString(savedChar);
@@ -44,6 +44,8 @@ public class ControllerTest{
 
         this.mock.perform(mockRequest).andExpect(matchStatus).andExpect(matchBody);
     }
+
+
 
 
 
