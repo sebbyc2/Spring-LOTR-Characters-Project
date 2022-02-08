@@ -14,12 +14,15 @@ I will be making a fork of this project where I will hopefully try to add more t
 maybe some more service methods, and maybe even some sort of front end
 
 Screenshots showing postman request -
-![Post Request](src/main/resources/Post%20Request.PNG)
-![Get Request - Read All](src/main/resources/Get%20Request%20-%20Read%20All.PNG)
-![Get Request - Read By Id](src/main/resources/Get%20Request.PNG)
-![Put Request](src/main/resources/Put%20Request.PNG)
-![Delete Request](src/main/resources/Delete%20Request.PNG)
+![Post Request](src/main/resources/images/Post%20Request.PNG)
+![Get Request - Read All](src/main/resources/images/Get%20Request%20-%20Read%20All.PNG)
+![Get Request - Read By Id](src/main/resources/images/Get%20Request.PNG)
+![Put Request](src/main/resources/images/Put%20Request.PNG)
+![Delete Request](src/main/resources/images/Delete%20Request.PNG)
+
 Screenshots of database to prove data is being persisted -
+![Data Persist](src/main/resources/images/Data%20Persist.PNG)
+
 
 Screenshots of your test results, including coverage report -
 
